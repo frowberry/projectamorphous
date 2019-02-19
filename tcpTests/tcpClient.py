@@ -1,7 +1,7 @@
 import socket
 
 def main():
-	host = input("please input the ip address you would like to connect to: ")
+	host = "10.144.37.139"
 	port = 5000
 
 	s = socket.socket()

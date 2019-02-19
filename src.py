@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
 
-print("does this work?")
+x = "hi"
+
+def tellsmth(x):
+	return x
+
+print(x)
 
