@@ -1,27 +1,22 @@
 import socket
 
 def main():
-	host = input("Please input your local ip address: ")
+	host = '127.0.0.1'
 	port = 5000
 
 	s = socket.socket()
 	s.bind((host, port))
 
-
-
+	print("awaiting for connection...")
 	s.listen(1)
 	c, addr = s.accept()
-	c.send(b'This is the Question Master')
 	print("Connection from: ", str(addr))
 	while True:
 		data = c.recv(1024).decode('utf-8')
 		if not data:
 			break
-		print("from connected user: ", str(data))
-		data = input("What would you like to reply? ")
-		print("sending...")
+		data = data.upper()
 		c.send(data.encode('utf-8'))
-		print("sent")
 	c.close()
 
 if __name__ == '__main__':

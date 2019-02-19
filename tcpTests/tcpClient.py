@@ -1,17 +1,16 @@
 import socket
 
-def main():
-	host = "10.144.37.139"
-	port = 5000
+host = '127.0.0.1'
+port = 5000
 
-	s = socket.socket()
-	s.connect((host,port))
-	print("Recieved from server: ", s.recv(1024).decode('utf-8'))
+s = socket.socket()
+s.connect((host, port))
+
+message = input("-> ")
+while message != 'q':
+	s.send(message.encode('utf-8'))
+	data = s.recv(1024).decode('utf-8')
+	print("Received from server: ", str(data))
 	message = input("-> ")
-	while message != 'q':
-		s.send(message.encode('utf-8'))
-		data = s.recv(1024).decode('utf-8')
-		print ("Recieved from server: ", str(data))
-		message = input("-> ")
-	s.close()
+s.close()
 
