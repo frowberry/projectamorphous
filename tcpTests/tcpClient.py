@@ -15,5 +15,3 @@ def main():
 		message = input("-> ")
 	s.close()
 
-if __name__ == '__main__':
-	main()
